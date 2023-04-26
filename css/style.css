@@ -2,164 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 *{
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+    margin: none;
+    padding: none;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
-/* --------------------------------
-
-File#: _1_sticky-hero
-Title: Sticky Hero
-Descr: A sticky hero section that reveals its content on scroll
-Usage: codyhouse.co/license
-
--------------------------------- */
-.sticky-hero {
-  position: relative;
-  z-index: 1;
+html::-webkit-scrollbar-thumb{
+    background-color: #415446;
+    border-radius: 50px;
 }
 
-.sticky-hero__media {
-  position: relative;
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 1;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: -webkit-transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transform: translateZ(0);
+html::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+    background-color: #EBF0EC;
 }
 
-.sticky-hero--overlay-layer .sticky-hero__media::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  @apply bg-white;
-  transition: opacity 1s;
+span.type{
+    color: #415446;
 }
 
-.sticky-hero--media-is-fixed.sticky-hero--overlay-layer .sticky-hero__media::after {
-  opacity: 0.65;
+.cards {
+    perspective: 250px;
+    transform-style: preserve-3d;
 }
 
-.sticky-hero--media-is-fixed.sticky-hero--scale .sticky-hero__media {
-  transform: scale(0.9);
+@media only screen and (min-width: 1200px){
+
+    .cards {
+        perspective: 1000px;
+        transform-style: preserve-3d;
+    }
 }
 
-.sticky-hero__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-.sticky-hero__video video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);transform: translateX(-50%) translateY(-50%);
-  display: block;
-  min-height: 100%;
-  min-width: 100%;
-  height: auto;
-  width: auto;
-  max-width: none;
+.cards label {
+    transition: transform 0.55s ease;
 }
 
-.sticky-hero__content {
-  position: relative;
-  z-index: 2;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateZ(0);
-}
+#divProject input {
 
-/* --------------------------------
-
-File#: _1_sticky-banner
-Title: Sticky Banner
-Descr: A sticky banner that slides in passed a target element or a scrolling offset.
-Usage: codyhouse.co/license
-
--------------------------------- */
-.sticky-banner {
-    position: fixed;
-    top: -1px;
-    left: 0;
-    width: 100%;
-    @apply z-10;
-    transform: translateY(-100%);
-    
-    transition: transform 0.3s;
-    
-  }
-  
-  
-  .sticky-banner--visible {
-    transform: translateY(0);
-  }
-  
-  .sticky-banner:not(.sticky-banner--visible) {
-    box-shadow: none;
-  }
-
-
-  .slider {
-    background-color: #ffffff2b;
-    border-radius: 100px;
-    padding: 1px;
-    margin: 10px;
-    cursor: pointer;
-    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    align-items: center;
-    position: relative;
-    display: inline-block;
-    width: 51px;
-    height: 29px;
-    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset,
-          #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
-  }
-  
-  .slider::after {
-    content: "";
-    display: flex;
-    top: 2.3px;
-    left: 2px;
-    width: 26px;
-    height: 26px;
-    background-color: #e3e3e3;
-    border-radius: 200px;
-    position: absolute;
-    box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
-    transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    will-change: left, background-color;
-  }
-  
-  .switch input[type="checkbox"]:checked + .slider {
-    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, #22cc3f 0px 0px 0px 2px inset, #22cc3f 0px 0px 0px 24px inset,
-          rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
-  }
-  
-  .switch input[type="checkbox"]:checked + .slider::after {
-    left: 24px;
-  }
-  
-  .switch input[type="checkbox"] {
     display: none;
-  }
+}
+
+
+
+
+#s1:checked~.cards #slide4,
+#s2:checked~.cards #slide5,
+#s3:checked~.cards #slide1,
+#s4:checked~.cards #slide2,
+#s5:checked~.cards #slide3 {
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 45%);
+    transform: translate3d(-70%, 0, -220px);
+    --current-color1: #ECEAED;
+    --current-color2: #404457;
+}
+
+#s1:checked~.cards #slide5,
+#s2:checked~.cards #slide1,
+#s3:checked~.cards #slide2,
+#s4:checked~.cards #slide3,
+#s5:checked~.cards #slide4 {
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%);
+    transform: translate3d(-35%, 0, -120px);
+    --current-color1: #ECEAED;
+    --current-color2: #404457;
+}
+
+#s1:checked~.cards #slide1,
+#s2:checked~.cards #slide2,
+#s3:checked~.cards #slide3,
+#s4:checked~.cards #slide4,
+#s5:checked~.cards #slide5 {
+    box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 50%);
+    transform: translate3d(0, 0, 0);
+    --current-color1: #fad00c;
+    --current-color2: #ECEAED;
+}
+
+#s1:checked~.cards #slide2,
+#s2:checked~.cards #slide3,
+#s3:checked~.cards #slide4,
+#s4:checked~.cards #slide5,
+#s5:checked~.cards #slide1 {
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%);
+    transform: translate3d(35%, 0, -120px);
+    --current-color1: #ECEAED;
+    --current-color2: #404457;
+}
+
+#s1:checked~.cards #slide3,
+#s2:checked~.cards #slide4,
+#s3:checked~.cards #slide5,
+#s4:checked~.cards #slide1,
+#s5:checked~.cards #slide2 {
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 45%);
+    transform: translate3d(70%, 0, -220px);
+    --current-color1: #ECEAED;
+    --current-color2: #404457;
+}

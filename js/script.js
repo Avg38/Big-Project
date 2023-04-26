@@ -1,221 +1,86 @@
-if(!Util) function Util () {};
+// Get the modal
+var modal = document.getElementById("myModal");
 
-Util.hasClass = function(el, className) {
-  return el.classList.contains(className);
-};
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-Util.addClass = function(el, className) {
-  var classList = className.split(' ');
-  el.classList.add(classList[0]);
-  if (classList.length > 1) Util.addClass(el, classList.slice(1).join(' '));
-};
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-Util.removeClass = function(el, className) {
-  var classList = className.split(' ');
-  el.classList.remove(classList[0]);
-  if (classList.length > 1) Util.removeClass(el, classList.slice(1).join(' '));
-};
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
-Util.toggleClass = function(el, className, bool) {
-  if(bool) Util.addClass(el, className);
-  else Util.removeClass(el, className);
-};
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-// File#: _1_sticky-hero
-// Usage: codyhouse.co/license
-(function() {
-	var StickyBackground = function(element) {
-		this.element = element;
-		this.scrollingElement = this.element.getElementsByClassName('sticky-hero__content')[0];
-		this.nextElement = this.element.nextElementSibling;
-		this.scrollingTreshold = 0;
-		this.nextTreshold = 0;
-		initStickyEffect(this);
-	};
-
-	function initStickyEffect(element) {
-		var observer = new IntersectionObserver(stickyCallback.bind(element), { threshold: [0, 0.1, 1] });
-		observer.observe(element.scrollingElement);
-		if(element.nextElement) observer.observe(element.nextElement);
-	};
-
-	function stickyCallback(entries, observer) {
-		var threshold = entries[0].intersectionRatio.toFixed(1);
-		(entries[0].target ==  this.scrollingElement)
-			? this.scrollingTreshold = threshold
-			: this.nextTreshold = threshold;
-
-		Util.toggleClass(this.element, 'sticky-hero--media-is-fixed', (this.nextTreshold > 0 || this.scrollingTreshold > 0));
-	};
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
-	var stickyBackground = document.getElementsByClassName('js-sticky-hero'),
-		intersectionObserverSupported = ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype);
-	if(stickyBackground.length > 0 && intersectionObserverSupported) { // if IntersectionObserver is not supported, animations won't be triggeres
-		for(var i = 0; i < stickyBackground.length; i++) {
-			(function(i){ // if animations are enabled -> init the StickyBackground object
-        if( Util.hasClass(stickyBackground[i], 'sticky-hero--overlay-layer') || Util.hasClass(stickyBackground[i], 'sticky-hero--scale')) new StickyBackground(stickyBackground[i]);
-      })(i);
-		}
-	}
-}());
 
 
-if(!Util) function Util () {};
 
-Util.addClass = function(el, className) {
-  var classList = className.split(' ');
-  el.classList.add(classList[0]);
-  if (classList.length > 1) Util.addClass(el, classList.slice(1).join(' '));
-};
 
-Util.removeClass = function(el, className) {
-  var classList = className.split(' ');
-  el.classList.remove(classList[0]);
-  if (classList.length > 1) Util.removeClass(el, classList.slice(1).join(' '));
-};
-
-Util.toggleClass = function(el, className, bool) {
-  if(bool) Util.addClass(el, className);
-  else Util.removeClass(el, className);
-};
-
-// File#: _1_sticky-banner
-// Usage: codyhouse.co/license
-(function() {
-  var StickyBanner = function(element) {
-    this.element = element;
-    this.offsetIn = 0;
-    this.offsetOut = 0;
-    this.targetIn = this.element.getAttribute('data-target-in') ? document.querySelector(this.element.getAttribute('data-target-in')) : false;
-    this.targetOut = this.element.getAttribute('data-target-out') ? document.querySelector(this.element.getAttribute('data-target-out')) : false;
-    this.reset = 0;
-    // check if the window is the scrollable element
-    this.dataElement = this.element.getAttribute('data-scrollable-element') || this.element.getAttribute('data-element');
-    this.scrollElement = this.dataElement ? document.querySelector(this.dataElement) : window;
-    if(!this.scrollElement) this.scrollElement = window;
-    this.scrollingId = false;
-    getBannerOffsets(this);
-    initBanner(this);
-  };
-
-  function getBannerOffsets(element) { // get offset in and offset out values
-    // update offsetIn
-    element.offsetIn = 0;
-    var windowTop = getScrollTop(element);
-
-    if(element.targetIn) {
-      var boundingClientRect = element.targetIn.getBoundingClientRect();
-      element.offsetIn = boundingClientRect.top + windowTop + boundingClientRect.height;
-    }
-    var dataOffsetIn = element.element.getAttribute('data-offset-in');
-    if(dataOffsetIn) {
-      element.offsetIn = element.offsetIn + parseInt(dataOffsetIn);
-    }
-    // update offsetOut
-    element.offsetOut = 0;
-    if(element.targetOut) {
-      var boundingClientRect = element.targetOut.getBoundingClientRect();
-      element.offsetOut = boundingClientRect.top + windowTop - window.innerHeight;
-    }
-    var dataOffsetOut = element.element.getAttribute('data-offset-out');
-    if(dataOffsetOut) {
-      element.offsetOut = element.offsetOut + parseInt(dataOffsetOut);
-    }
-  };
-
-  function initBanner(element) {
-    resetBannerVisibility(element);
-
-    element.element.addEventListener('resize-banner', function(){
-      getBannerOffsets(element);
-      resetBannerVisibility(element);
-    });
-
-    element.element.addEventListener('scroll-banner', function(){
-      if(element.reset < 10) {
-        getBannerOffsets(element);
-        element.reset = element.reset + 1;
-      }
-      resetBannerVisibility(element);
-    });
-
-    if(element.dataElement && element.scrollElement) {
-      // the scrollable element is different from the window - detect the scrolling
-      element.scrollElement.addEventListener('scroll', function(event){
-        if(element.scrollingId) return;
-        element.scrollingId = true;
-        window.requestAnimationFrame(function(){
-          element.element.dispatchEvent(new CustomEvent('scroll-banner'));
-          element.scrollingId = false;
-        })
+const instanceMode = te.Sidenav.getInstance(
+    document.getElementById("sidenav-2")
+  );
+  const modes = ["push", "over", "side"];
+  
+  modes.forEach((mode) => {
+    const modeSwitch = document.getElementById(mode);
+    modeSwitch.addEventListener("click", () => {
+      const instance = te.Sidenav.getInstance(
+        document.getElementById("sidenav-2")
+      );
+      instance.changeMode(mode);
+      modes.forEach((el) => {
+        if (el === mode) {
+          ["text-primary-600", "border-primary-600"].forEach((item) =>
+            modeSwitch.classList.remove(item)
+          );
+          modeSwitch.className +=
+            " bg-primary text-white hover:bg-primary-700 active:bg-primary-800 focus:bg-primary-700 border-transparent";
+        } else {
+          const node = document.getElementById(el);
+          node.className += " text-primary-600 border-primary-600";
+          [
+            "bg-primary",
+            "text-white",
+            "hover:bg-primary-700",
+            "active:bg-primary-800",
+            "focus:bg-primary-700",
+            "border-transparent",
+          ].forEach((item) => node.classList.remove(item));
+        }
       });
-    }
-  };
-
-  function resetBannerVisibility(element) {
-    var scrollTop = getScrollTop(element),
-      topTarget = false,
-      bottomTarget = false;
-    if(element.offsetIn <= scrollTop) {
-      topTarget = true;
-    }
-    if(element.offsetOut == 0 || scrollTop < element.offsetOut) {
-      bottomTarget = true;
-    }
-
-    Util.toggleClass(element.element, 'sticky-banner--visible', bottomTarget && topTarget);
-  };
-
-  function getScrollTop(element) {
-    // the scrollable element could be different from the window element
-    var windowTop = element.scrollElement.scrollTop || document.documentElement.scrollTop;
-    if(!element.dataElement) windowTop = window.scrollY || document.documentElement.scrollTop;
-    return windowTop;
-  };
-
-  //initialize the Sticky Banner objects
-	var stckyBanner = document.getElementsByClassName('js-sticky-banner');
-	if( stckyBanner.length > 0 ) {
-		for( var i = 0; i < stckyBanner.length; i++) {
-			(function(i){new StickyBanner(stckyBanner[i]);})(i);
-    }
-    
-    // init scroll/resize
-    var resizingId = false,
-      scrollingId = false,
-      resizeEvent = new CustomEvent('resize-banner'),
-      scrollEvent = new CustomEvent('scroll-banner');
-    
-    window.addEventListener('resize', function(event){
-      clearTimeout(resizingId);
-      resizingId = setTimeout(function(){
-        doneResizing(resizeEvent);
-      }, 300);
     });
+  });
 
-    window.addEventListener('scroll', function(event){
-      if(scrollingId) return;
-      scrollingId = true;
-      window.requestAnimationFrame 
-        ? window.requestAnimationFrame(function(){
-          doneResizing(scrollEvent);
-          scrollingId = false;
-        })
-        : setTimeout(function(){
-          doneResizing(scrollEvent);
-          scrollingId = false;
-        }, 200);
 
-      resizingId = setTimeout(function(){
-        doneResizing(resizeEvent);
-      }, 300);
-    });
 
-    function doneResizing(event) {
-      for( var i = 0; i < stckyBanner.length; i++) {
-        (function(i){stckyBanner[i].dispatchEvent(event)})(i);
-      };
-    };
-	}
-}());
+
+  function reverse(){
+    $("body").css("transform","scaleX(-1)")
+  }
+  
+  function changeImage(){
+    
+  }
+  
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+  
+  $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+  
+  
