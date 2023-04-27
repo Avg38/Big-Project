@@ -18,9 +18,19 @@ require "cfg/config.php"; ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
     <title>AVG</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython_stdlib.js"></script>
+    <style>
+        * { padding: 0; margin: 0; }
+        canvas { background: #eee; display: block; margin: 0 auto; }
+        body,td,th{
+            font-family:sans-serif;
+            font-size:12px;
+        }
+    </style>
   </head>
 
-  <body>
+  <body unload="brython()">
     <?php
     $sql = "SELECT * FROM guestbook ORDER BY idMessage DESC LIMIT 3";
     $pre = $pdo->prepare($sql);
@@ -315,8 +325,8 @@ require "cfg/config.php"; ?>
     <h3 id="game" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Game</h3>
         
     <div class="flex justify-center">
-    <a target="_blank" class="text-2xl rounded-2xl mt-5 w-24 p-3 bg-[#415446] hover:shadow-xl hover:bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% " href="jeu/click-game.html"><p class="text-center text-white">Play</p></a>
-        
+      <a target="_blank" class="text-2xl rounded-2xl mt-5 w-24 p-3 bg-[#415446] hover:shadow-xl hover:bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% " href="jeu/click-game.html"><p class="text-center text-white">Play</p></a>
+
     </div>
 
     <!-- GET IN TOUCH WITH ME -->
