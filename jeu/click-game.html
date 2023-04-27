@@ -1,15 +1,54 @@
 <html lang="en">
-<head>
+
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Amandine Vialle-Guérin - étudiante en cybersécurité à Guardia Cybersecurity School, en recherchde stage pour mi-mai.">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="dist/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
     <script src="https://cdn.jsdelivr.net/gh/kitao/pyxel/wasm/pyxel.js"></script>    
-    <title>jeu shooter</title>
-
-   
-</head>
+    <title>AVG | Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 <body>
-
+    <div id="sidenav-2" class=" hidden fixed left-0 top-0 z-[1035] h-screen container w-60 -translate-x-full overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0" data-te-sidenav-init data-te-sidenav-hidden="false" data-te-sidenav-mode="side" data-te-sidenav-content="#content">
+        <ul class=" m-0 mx-auto text-center lg:flex lg:w-[50%] -z-10 flex flex-col gap-8 font-medium">
+          <li class="p-2 hover:text-[#415446]"><a href="../index.php" >Home</a></li>
+          <li class="p-2 hover:text-[#415446]"><a href="../index.php#aboutMe" >About</a></li>
+          <li class="p-2 hover:text-[#415446]"><a href="../index.php#skills" >Skills</a></li>
+          <li class="p-2 hover:text-[#415446]"><a href="../index.php#projects" >Projects</a></li>
+          <li class="p-2 hover:text-[#415446]"><a href="../index.php#game" >Games</a></li>
+          <li class="p-2 hover:text-[#415446]"><a href="../index.php#contact" >GuestBook</a></li>
+        </ul>
+      </div>
+  
+    <nav class="dark:bg-[#1f2022] z-50 shadow-sm bg-white sm:min-w-full sticky content-center top-0 flex flex-row p-2 max-w-5xl items-center justify-between">
+    <button class="lg:hidden w-[30%] hover:text-[#415446] cursor-pointer text-xs font-medium leading-tight transition duration-150 ease-in-out" data-te-sidenav-toggle-ref data-te-target="#sidenav-2" aria-controls="#sidenav-2" aria-haspopup="true">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </button>
+    <div class="w-[30%] lg:pl-48 ">
+        <a href="../index.php"  aria-label="Page d'accueil du Portfolio"><img class="mx-auto w-24 sm:w-32 md:inline md:mr-4" src="../img/AVG-green.png" alt="logo Amandine Vialle-Guérin"></a>
+    </div>
+    <ul class="lg:visible hidden lg:flex lg:w-[50%] gap-8 font-medium">
+        <li class="hover:text-[#415446]"><a href="../index.php" >Home</a></li>
+        <li class="hover:text-[#415446]"><a href="../index.php#aboutMe" >About</a></li>
+        <li class="hover:text-[#415446]"><a href="#skills" >Skills</a></li>
+        <li class="hover:text-[#415446]"><a href="#projects" >Projects</a></li>
+        <li class="hover:text-[#415446]"><a href="#game" >Games</a></li>
+        <li class="hover:text-[#415446]"><a href="#contact" >GuestBook</a></li>
+    </ul>
+    </nav>
+  
 
 <pyxel-run
     root="."

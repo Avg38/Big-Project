@@ -19,12 +19,12 @@
 
         <div id="sidenav-2" class=" hidden fixed left-0 top-0 z-[1035] h-screen container w-60 -translate-x-full overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0" data-te-sidenav-init data-te-sidenav-hidden="false" data-te-sidenav-mode="side" data-te-sidenav-content="#content">
             <ul class=" m-0 mx-auto text-center lg:flex lg:w-[50%] -z-10 flex flex-col gap-8 font-medium">
-                <li class="p-2 hover:text-[#415446]"><a href="#" >Home</a></li>
-                <li class="p-2 hover:text-[#415446]"><a href="#aboutMe" >About</a></li>
-                <li class="p-2 hover:text-[#415446]"><a href="#skills" >Skills</a></li>
-                <li class="p-2 hover:text-[#415446]"><a href="#projects" >Projects</a></li>
-                <li class="p-2 hover:text-[#415446]"><a href="#game" >Games</a></li>
-                <li class="p-2 hover:text-[#415446]"><a href="#contact" >GuestBook</a></li>
+                <li class="p-2 hover:text-[#415446]"><a href="../index.php" >Home</a></li>
+                <li class="p-2 hover:text-[#415446]"><a href="../index.php#aboutMe" >About</a></li>
+                <li class="p-2 hover:text-[#415446]"><a href="../index.php#skills" >Skills</a></li>
+                <li class="p-2 hover:text-[#415446]"><a href="../index.php#projects" >Projects</a></li>
+                <li class="p-2 hover:text-[#415446]"><a href="../index.php#game" >Games</a></li>
+                <li class="p-2 hover:text-[#415446]"><a href="../index.php#contact" >GuestBook</a></li>
             </ul>
         </div>
 
@@ -45,20 +45,13 @@
             </div>
             
             <ul class="lg:visible hidden lg:flex lg:w-[50%] gap-8 font-medium">
-                <li class="hover:text-[#415446]"><a href="../app/index.php" >Home</a></li>
-                <li class="hover:text-[#415446]"><a href="../app/index.php#aboutMe" >About</a></li>
-                <li class="hover:text-[#415446]"><a href="../app/index.php#skills" >Skills</a></li>
-                <li class="hover:text-[#415446]"><a href="../app/index.php#projects" >Projects</a></li>
-                <li class="hover:text-[#415446]"><a href="../app/index.php#game" >Games</a></li>
-                <li class="hover:text-[#415446]"><a href="../app/index.php#contact" >GuestBook</a></li>
-            </ul>
-            <a id="reverse" onclick="reverse()" href="#" class="cursor-pointer moon lg:w-[10%] lg:pl-0 w-[30%] hover:text-[#415446] dark:hidden ">   
-                
-                <img src="../img/recharger.png" class="hover:text-[#415446] mx-auto w-6 h-6">      
-            </a>
-
-            
-            
+                <li class="hover:text-[#415446]"><a href="../index.php">Home</a></li>
+                <li class="hover:text-[#415446]"><a href="../index.php#aboutMe">About</a></li>
+                <li class="hover:text-[#415446]"><a href="../index.php#skills">Skills</a></li>
+                <li class="hover:text-[#415446]"><a href="../index.php#projects">Projects</a></li>
+                <li class="hover:text-[#415446]"><a href="../index.php#game"></a>Games</a></li>
+                <li class="hover:text-[#415446]"><a href="../index.php#contact">GuestBook</a></li>
+            </ul>                     
         </nav>
 
 
@@ -67,7 +60,8 @@
               <div class="text-center mb-12">
                 <h1 class="text-4xl mb-6">Page not found</h1>
                 <p class="mb-4">Sorry, but the page you were looking for could not be found.</p>
-                <p><a href="#0">Go to homepage</a> or <a href="#0">get in touch</a>.</p>
+                
+                <p><a class="text-orange-800 hover:underline bg-[linear-gradient(toright,#9a3412_50%,_hsla(15_79%_34%/0.2)_50%)] bg-[length:200%_1px] bg-no-repeat bg-[position:100%_100%] transition-all duration-200 hover:bg-[position:0%_100%]" href="../index.php">Return to homepage</a>.</p>
               </div>
           
               <div aria-label="404 animation">
@@ -88,12 +82,12 @@
                     
                 </div>
                 <ul class="md:w-[40%] text-[#415446] flex flex-col gap-5 font-medium text-center">
-                    <li class="hover:text-black"><a href="#" >Home</a></li>
-                    <li class="hover:text-black"><a href="#aboutMe" >About</a></li>
-                    <li class="hover:text-black"><a href="#skills" >Skills</a></li>
-                    <li class="hover:text-black"><a href="#projects" >Projects</a></li>
-                    <li class="hover:text-black"><a href="#game" >Games</a></li>
-                    <li class="hover:text-black"><a href="#contact" >Contact</a></li>
+                    <li class="hover:text-black"><a href="../#" >Home</a></li>
+                    <li class="hover:text-black"><a href="../#aboutMe" >About</a></li>
+                    <li class="hover:text-black"><a href="../#skills" >Skills</a></li>
+                    <li class="hover:text-black"><a href="../#projects" >Projects</a></li>
+                    <li class="hover:text-black"><a href="../#game" >Games</a></li>
+                    <li class="hover:text-black"><a href="../#contact" >Contact</a></li>
                 </ul>
             </div>
             <div class="flex flex-col border-t border-gray-300 py-2 lg:py-3 mt-8 lg:mt-12 lg:flex-row lg:justify-between lg:items-center">

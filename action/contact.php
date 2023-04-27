@@ -9,7 +9,7 @@ require "../cfg/config.php";
         $pre->bindParam("message", htmlspecialchars($_POST['message']));
         $pre->execute();
 
-        header('Location:../app/index.php');
+        header('Location:../index.php#feedback');
 
     } elseif(empty($_POST['pseudo']) AND !empty($_POST['message']))
     {

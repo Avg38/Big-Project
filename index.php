@@ -62,10 +62,6 @@ require "cfg/config.php"; ?>
         <li class="hover:text-[#415446]"><a href="#game" >Games</a></li>
         <li class="hover:text-[#415446]"><a href="#contact" >GuestBook</a></li>
       </ul>
-      <a id="reverse" onclick="reverse()" href="#" class="cursor-pointer moon lg:w-[10%] lg:pl-0 w-[30%] hover:text-[#415446] dark:hidden ">   
-            
-        <img src="img/recharger.png" class="hover:text-[#415446] mx-auto w-6 h-6">      
-      </a>
     </nav>
 
     <!-- HOME  -->
@@ -343,7 +339,7 @@ require "cfg/config.php"; ?>
 
     <!-- FEEDBACK -->
 
-    <h3 class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Feedback</h3>
+    <h3 id="feedback" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Feedback</h3>
     <section class="feature-v6 relative z-[1]">
       <div class="mx-auto w-[calc(100%_-_3rem)] lg:max-w-5xl xl:max-w-7xl">
         <div class="mx-16 grid grid-cols-12 gap-8 md:gap-16 rounded-lg">  
@@ -392,7 +388,7 @@ require "cfg/config.php"; ?>
         </div>
   
         <div class="mx-auto md:mx-0 flex items-center gap-2 lg:gap-3">
-          <a href="https://www.linkedin.com/in/avg38/" class="main-footer__social" target="_blank">
+          <a href="action/404.php" class="main-footer__social" target="_blank">
             <img class="h-5" src="img/linkedin.png" alt="">
           </a>
           <a href="https://github.com/Avgefge38" class="main-footer__social" target="_blank">
@@ -403,7 +399,7 @@ require "cfg/config.php"; ?>
       </div>
     </footer>
 
-    <script src="JS/script.js"></script>
+    <script src="js/script.js"></script>
     <script src="tailwind.config.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
     <script>const typed = new Typed('.type', {strings: ["a Cybersecurity Student","a Web Developper", "an Entrepreneur"],typeSpeed: 30,backSpeed: 30,loop: true});</script>

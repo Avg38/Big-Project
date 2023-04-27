@@ -1,42 +1,49 @@
 import pyxel
 
-
 class App:
     def __init__(self):
-        pyxel.init(200, 150, title="Pyxel Triangle API")
-        self.triangles = [(100, 24, 7, 143, 193, 143, 7)]
-        pyxel.cls(13)
-        pyxel.text(6, 6, "tri(x1,y1,x2,y2,x3,y3,col)", 7)
-        pyxel.text(6, 14, "trib(x1,y1,x2,y2,x3,y3,col)", 7)
+        pyxel.init(120, 120)
+        pyxel.mouse(True)
+        self.board = [[0,0,0],[0,0,0],[0,0,0]]
+        self.player = 1
+        self.game_over = False
         pyxel.run(self.update, self.draw)
 
     def update(self):
-        if pyxel.btnp(pyxel.KEY_Q):
-            pyxel.quit()
+        if pyxel.btnp(0):
+            x, y = pyxel.mouse_x // 40, pyxel.mouse_y // 40
+            if self.board[x][y] == 0 and not self.game_over:
+                self.board[x][y] = self.player
+                self.check_win()
+                self.player = 3 - self.player
 
     def draw(self):
-        if self.triangles:
-            triangle = self.triangles.pop(0)
-            self.draw_triangle(*triangle)
-
-    def draw_triangle(self, x1, y1, x2, y2, x3, y3, n):
-        if n == 0:
-            return
-        col = n + 7
-        if n % 2 == 0:
-            pyxel.tri(x1, y1, x2, y2, x3, y3, col)
+        pyxel.cls(0)
+        for i in range(1, 3):
+            pyxel.line(0, i*40, 120, i*40, 7)
+            pyxel.line(i*40, 0, i*40, 120, 7)
+        for x in range(3):
+            for y in range(3):
+                if self.board[x][y] == 1:
+                    pyxel.text(x*40+10, y*40+10, "X", 9)
+                elif self.board[x][y] == 2:
+                    pyxel.text(x*40+10, y*40+10, "O", 8)
+        if self.game_over:
+            pyxel.text(35, 55, "GAME OVER", pyxel.frame_count % 16)
         else:
-            pyxel.trib(x1, y1, x2, y2, x3, y3, col)
-        h1 = (x1 + x2) / 2
-        w1 = (y1 + y2) / 2
-        h2 = (x2 + x3) / 2
-        w2 = (y2 + y3) / 2
-        h3 = (x3 + x1) / 2
-        w3 = (y3 + y1) / 2
-        w3 = (y3 + y1) / 2
-        self.triangles.append((x1, y1, h1, w1, h3, w3, n - 1))
-        self.triangles.append((h1, w1, x2, y2, h2, w2, n - 1))
-        self.triangles.append((h3, w3, h2, w2, x3, y3, n - 1))
+            pyxel.text(20, 55, "Tic Tac Toe", 7)
 
+    def check_win(self):
+        for i in range(3):
+            if self.board[i][0] == self.board[i][1] == self.board[i][2] != 0:
+                self.game_over = True
+            if self.board[0][i] == self.board[1][i] == self.board[2][i] != 0:
+                self.game_over = True
+        if self.board[0][0] == self.board[1][1] == self.board[2][2] != 0:
+            self.game_over = True
+        if self.board[2][0] == self.board[1][1] == self.board[0][2] != 0:
+            self.game_over = True
+        if all(self.board[i][j] != 0 for i in range(3) for j in range(3)):
+            self.game_over = True
 
 App()
