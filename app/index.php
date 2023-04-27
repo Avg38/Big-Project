@@ -17,21 +17,18 @@ require "../cfg/config.php"; ?>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
         <title>AVG</title>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="dark:bg-[#141518] dark:text-white">
+    <body>
       <?php
-      $sql = "SELECT * FROM guestbook";
+      $sql = "SELECT * FROM guestbook ORDER BY idMessage DESC LIMIT 3";
       $pre = $pdo->prepare($sql);
       $pre->bindParam('idMessage', $_POST['idMessage']);
       $pre->bindParam('pseudo', $_POST['pseudo']);
       $pre->bindParam('message', $_POST['message']);
       $pre->execute();
-      $data = $pre->fetch(PDO::FETCH_ASSOC);
+      $data = $pre->fetchAll(PDO::FETCH_ASSOC);
 
-      $id = "#".$data["idMessage"];
-      $pseudo = $data["pseudo"];
-      $message = $data['message'];
-  
       ?>  
         <!-- NAVBAR -->
 
@@ -107,7 +104,7 @@ require "../cfg/config.php"; ?>
                     <div>
                         <a class="pt-16 xl:pt-48 text-lg flex flex-row" href="#aboutMe">
                             <img class="w-8" src="../img/souris.png" alt="Amandine Vialle-Guérin">
-                            <p class="pl-3 mt-1">Scroll Down</p>
+                            <p class="text-[#415446] pl-3 mt-1">Scroll Down</p>
                             <img class=" mt-2 ml-2 h-4" src="../img/fleche.png" alt="Amandine Vialle-Guérin">
                         </a>
                         
@@ -137,7 +134,7 @@ require "../cfg/config.php"; ?>
 
                         <a class=" place-content-end pt-16 xl:pt-48 text-lg flex flex-row" href="#skills">
                             <img class="w-8" src="../img/souris.png" alt="Amandine Vialle-Guérin">
-                            <p class="pl-3 mt-1">Scroll Down</p>
+                            <p class="text-[#415446] pl-3 mt-1">Scroll Down</p>
                             <img class=" mt-2 ml-2 h-4" src="../img/fleche.png" alt="Amandine Vialle-Guérin">
                         </a>
                         
@@ -278,7 +275,7 @@ require "../cfg/config.php"; ?>
           <div>
             <a class=" place-content-end pt-16 text-lg flex flex-row mr-16" href="#qualifications">
                 <img class="w-8" src="../img/souris.png" alt="Amandine Vialle-Guérin">
-                <p class="pl-3 mt-1">Scroll Down</p>
+                <p class="text-[#415446] pl-3 mt-1">Scroll Down</p>
                 <img class=" mt-2 ml-2 h-4" src="../img/fleche.png" alt="Amandine Vialle-Guérin">
             </a>
             
@@ -327,7 +324,7 @@ require "../cfg/config.php"; ?>
           <div>
             <a class=" place-content-end mr-16 text-lg flex flex-row" href="#projects">
                 <img class="w-8" src="../img/souris.png" alt="Amandine Vialle-Guérin">
-                <p class="pl-3 mt-1">Scroll Down</p>
+                <p class="text-[#415446] pl-3 mt-1">Scroll Down</p>
                 <img class=" mt-2 ml-2 h-4" src="../img/fleche.png" alt="Amandine Vialle-Guérin">
             </a>
             
@@ -336,7 +333,35 @@ require "../cfg/config.php"; ?>
         <!-- GUARDIA'S PROJECT -->
         <h3 id="projects" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16" id="aboutMe">Projects</h3>
 
-        <div id="divProject" class="width-full justify-center text-center flex mx-auto">
+        <section class="feature-v6 py-12 relative z-[1]">
+          <div class="mx-auto w-[calc(100%_-_3rem)] lg:max-w-5xl xl:max-w-7xl">
+            <div class="grid grid-cols-12 gap-8 md:gap-16 rounded-lg">  
+              <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
+                <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="../img/web.jpg" alt="Amandine Vialle-Guérin"></a>
+                <p class="text-lg p-3">Web Developpement</p>
+              </div>
+              <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
+                <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="../img/net.jpg" alt="Amandine Vialle-Guérin"></a>
+                <p class="text-lg p-3">Network</p>
+              </div>
+              <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
+                <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="../img/scrap.jpg" alt="Amandine Vialle-Guérin"></a>
+                <p class="text-lg p-3">Scrapping</p>
+              </div>
+              <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
+                <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="../img/cyber.jpg" alt="Amandine Vialle-Guérin"></a>
+                <p class="text-lg p-3">Introduction to cyber</p>
+              </div>
+              <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
+                <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="../img/c.jpg" alt="Amandine Vialle-Guérin"></a>
+                <p class="text-lg p-3">C Language</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- <div id="divProject" class="width-full justify-center text-center flex mx-auto">
 
 
             <input type="radio" name="slider" class="d-none" id="s1" checked>
@@ -407,13 +432,13 @@ require "../cfg/config.php"; ?>
                   </div>
                 </div>
               </label>
-            </div>
+            </div> -->
         
           </div>
           <div>
             <a class=" place-content-end mr-16 text-lg flex flex-row" href="#game">
                 <img class="w-8" src="../img/souris.png" alt="Amandine Vialle-Guérin">
-                <p class="pl-3 mt-1">Scroll Down</p>
+                <p class="text-[#415446] pl-3 mt-1">Scroll Down</p>
                 <img class=" mt-2 ml-2 h-4" src="../img/fleche.png" alt="Amandine Vialle-Guérin">
             </a>
             
@@ -422,8 +447,8 @@ require "../cfg/config.php"; ?>
         <!-- GAME -->
         <h3 id="game" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Game</h3>
             
-        <div>
-        <a class=" texte-center text-white flex flex-row rounded-2xl mt-5 w-48 p-4 bg-[#415446]" href="../jeu/click-game.html"><p>Play</p></a>
+        <div class="flex justify-center">
+        <a target="_blank" class="text-2xl rounded-2xl mt-5 w-24 p-3 bg-[#415446] hover:shadow-xl hover:bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% " href="../jeu/click-game.html"><p class="text-center text-white">Play</p></a>
             
         </div>
         <!-- GET IN TOUCH WITH ME -->
@@ -445,7 +470,36 @@ require "../cfg/config.php"; ?>
             <button type="submit" class="rounded-xl px-5 py-1 bg-[#415446] text-white">Send</button>
         </form>
         
+        
+
+
+        <!-- FEEDBACK -->
+
         <h3 class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Feedback</h3>
+        
+        <section class="feature-v6 relative z-[1]">
+          <div class="mx-auto w-[calc(100%_-_3rem)] lg:max-w-5xl xl:max-w-7xl">
+            <div class="mx-16 grid grid-cols-12 gap-8 md:gap-16 rounded-lg">  
+              <?php foreach($data as $feedback){ ?>
+              <div class="my-auto rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
+              <section class="my-auto testimonial relative z-[1] py-5">
+                <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl">
+                  <div class="testimonial__block-wrapper mb-2">
+                    <blockquote class="text-xl lg:text-2xl text-center leading-snug lg:leading-snug"><?php echo $feedback["message"] ?></blockquote>
+
+                    <svg class="icon inline-block text-inherit fill-current leading-none shrink-0 w-[32px] h-[32px] text-gray-900 opacity-10" aria-hidden="true" viewBox="0 0 64 64"><polygon fill="currentColor" points="2 36 17 2 26 2 15 36 26 36 26 62 2 62 2 36"/><polygon fill="currentColor" points="38 36 53 2 62 2 51 36 62 36 62 62 38 62 38 36"/></svg>
+                  </div>
+                  
+
+                  <div class="text-center">
+                    <p class="text-center text-black uppercase letter-spacing-md leading-tight"><strong><?php echo $feedback["pseudo"] ?></strong></p>
+                  </div>
+                </div>
+              </section> 
+
+            </div> <?php }?>
+          </div>
+        </section>
         
         <!-- FOOTER -->
         
@@ -472,7 +526,7 @@ require "../cfg/config.php"; ?>
                 
                 <div class=" mb-3 lg:mb-0">
                 <div class="text-center text-sm lg:text-xs flex flex-wrap gap-2 lg:gap-3">
-                    <span>&copy; Amandine Vialle-Guérin. All Right Reserved.</span>
+                    <span class="mx-auto">&copy; Amandine Vialle-Guérin. All Right Reserved.</span>
                 </div>
                 </div>
         
@@ -480,7 +534,7 @@ require "../cfg/config.php"; ?>
                   <a href="https://www.linkedin.com/in/avg38/" class="main-footer__social" target="_blank">
                       <img class="h-5" src="../img/linkedin.png" alt="">
                   </a>
-                  <a href="https://github.com/Avg38" class="main-footer__social" target="_blank">
+                  <a href="https://github.com/Avgefge38" class="main-footer__social" target="_blank">
                       <img class="h-5" src="../img/github.png" alt="">
                   </a>
                 
@@ -489,7 +543,9 @@ require "../cfg/config.php"; ?>
             
         </footer>
 
-        <script src="../js/script.js"></script>
+        
+    </body>
+    <script src="../JS/script.js"></script>
         <script src="../tailwind.config.js"></script>
         <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
         <script>
@@ -501,6 +557,4 @@ require "../cfg/config.php"; ?>
             });
         </script>
         <script src="https://cdn.jsdelivr.net/gh/kitao/pyxel/wasm/pyxel.js"></script>   
-        <!-- <script src="../jeu/game.py"></script> -->
-    </body>
 </html>

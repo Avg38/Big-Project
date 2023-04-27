@@ -1,0 +1,4 @@
+
+
+
+ErrorDocument 404 C://UwAmp/www/BigProject/action/error.php?code=404

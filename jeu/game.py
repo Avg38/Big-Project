@@ -1,81 +1,42 @@
-def afficher_grille(grille):
-    print("     0)  1)  2)")
-    print("   -------------")
-    print("0)", end='')
-    for i in range(3):
-        print(" | "+str(grille[i]), end='')
-    print(" |")
-    print("   -------------")
-    print("1)", end='')
-    for i in range(3):
-        print(" | "+str(grille[i+3]), end='')
-    print(" |")
-    print("   -------------")
-    print("2)", end='')
-    for i in range(3):
-        print(" | "+str(grille[i+6]), end='')
-    print(" |")
-    print("   -------------")
- 
- 
-def tour(grille, joueur):
-    print("C'est le tour du joueur "+str(joueur))
-    colonne=input("Entrez le numero de la colonne : ")
-    ligne=input("Entrez le numero de la ligne : ")
-    print("Vous avez joué la case ("+colonne+","+ligne+")")
-    while grille[int(colonne)+int(ligne)*3]!=" ":
-        afficher_grille(grille)
-        print("Cette case est deja jouée ! Saisissez une autre case svp !")
-        colonne=input("Entrez le numero de la colonne : ")
-        ligne=input("Entrez le numero de la ligne : ")
-        print("Vous avez joué la case ("+colonne+","+ligne+")")
- 
-    if joueur==1 :
-        grille[int(colonne)+int(ligne)*3]="X"
-    if joueur==2 :
-        grille[int(colonne)+int(ligne)*3]="O"
-    afficher_grille(grille)
- 
-def est_gagnant(grille):
-    if (grille[0]==grille[1]) and (grille[0]==grille[2]) and (grille[0]!=" "):
-        return 1
-    if (grille[3]==grille[4]) and (grille[3]==grille[5]) and (grille[3]!=" "):
-        return 1
-    if (grille[6]==grille[7]) and (grille[6]==grille[8]) and (grille[6]!=" "):
-        return 1
-    if (grille[0]==grille[3]) and (grille[0]==grille[6]) and (grille[0]!=" "):
-        return 1
-    if (grille[1]==grille[4]) and (grille[1]==grille[7]) and (grille[1]!=" "):
-        return 1
-    if (grille[2]==grille[5]) and (grille[2]==grille[8]) and (grille[2]!=" "):
-        return 1
-    if (grille[0]==grille[4]) and (grille[0]==grille[8]) and (grille[0]!=" "):
-        return 1
-    if (grille[2]==grille[4]) and (grille[2]==grille[6]) and (grille[2]!=" "):
-        return 1
- 
- 
-def est_match_nul(grille):
-    for i in range(9):
-        if grille[i]==" ":
-            return 0
-    return 1
- 
-joueur=1
-print("Le joueur 1 possède les X. Le joueur 2 possède les O")
-grille=[" "," "," "," "," "," "," "," "," "]
-afficher_grille(grille)
-gagne=0
-while gagne==0:
-    tour(grille,joueur)
-    if est_gagnant(grille):
-        print("Le joueur "+str(joueur)+" remporte la partie")
-        gagne=1
-    else:
-        if est_match_nul(grille):
-            print("Plus de place ! Match nul !")
-            gagne=1
-    if joueur==1:
-        joueur=2
-    else:
-        joueur=1
+import pyxel
+
+
+class App:
+    def __init__(self):
+        pyxel.init(200, 150, title="Pyxel Triangle API")
+        self.triangles = [(100, 24, 7, 143, 193, 143, 7)]
+        pyxel.cls(13)
+        pyxel.text(6, 6, "tri(x1,y1,x2,y2,x3,y3,col)", 7)
+        pyxel.text(6, 14, "trib(x1,y1,x2,y2,x3,y3,col)", 7)
+        pyxel.run(self.update, self.draw)
+
+    def update(self):
+        if pyxel.btnp(pyxel.KEY_Q):
+            pyxel.quit()
+
+    def draw(self):
+        if self.triangles:
+            triangle = self.triangles.pop(0)
+            self.draw_triangle(*triangle)
+
+    def draw_triangle(self, x1, y1, x2, y2, x3, y3, n):
+        if n == 0:
+            return
+        col = n + 7
+        if n % 2 == 0:
+            pyxel.tri(x1, y1, x2, y2, x3, y3, col)
+        else:
+            pyxel.trib(x1, y1, x2, y2, x3, y3, col)
+        h1 = (x1 + x2) / 2
+        w1 = (y1 + y2) / 2
+        h2 = (x2 + x3) / 2
+        w2 = (y2 + y3) / 2
+        h3 = (x3 + x1) / 2
+        w3 = (y3 + y1) / 2
+        w3 = (y3 + y1) / 2
+        self.triangles.append((x1, y1, h1, w1, h3, w3, n - 1))
+        self.triangles.append((h1, w1, x2, y2, h2, w2, n - 1))
+        self.triangles.append((h3, w3, h2, w2, x3, y3, n - 1))
+
+
+App()

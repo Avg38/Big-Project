@@ -1,9 +1,0 @@
-RewriteEngine On
-RewriteRule ^page1$ page2 [L]
-
-AuthType Basic
-AuthName "Restricted Area"
-AuthUserFile /path/to/.htpasswd
-Require valid-user
-
-Redirect 301 /index.html /nouveau.html
