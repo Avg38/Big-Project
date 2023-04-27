@@ -8,12 +8,10 @@ require "../cfg/config.php"; ?>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
+        <meta name="description" content="Amandine Vialle-Guérin - étudiante en cybersécurité à Guardia Cybersecurity School, en recherchde stage pour mi-mai.">
         <link rel="icon" href="../img/logo.png">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../dist/style.css">
-        <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
-        <script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -423,15 +421,11 @@ require "../cfg/config.php"; ?>
           
         <!-- GAME -->
         <h3 id="game" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Game</h3>
-            <py-script src="../jeu/game.py"></py-script>
-        <div>
-            <a class=" place-content-end mr-16 text-lg flex flex-row" href="#contact">
-                <img class="w-8" src="../img/souris.png" alt="Amandine Vialle-Guérin">
-                <p class="pl-3 mt-1">Scroll Down</p>
-                <img class=" mt-2 ml-2 h-4" src="../img/fleche.png" alt="Amandine Vialle-Guérin">
-            </a>
             
-            </div>
+        <div>
+        <a class=" texte-center text-white flex flex-row rounded-2xl mt-5 w-48 p-4 bg-[#415446]" href="../jeu/click-game.html"><p>Play</p></a>
+            
+        </div>
         <!-- GET IN TOUCH WITH ME -->
         <h3 id="contact" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Let a message</h3>
 
@@ -506,6 +500,7 @@ require "../cfg/config.php"; ?>
                 loop: true
             });
         </script>
+        <script src="https://cdn.jsdelivr.net/gh/kitao/pyxel/wasm/pyxel.js"></script>   
         <!-- <script src="../jeu/game.py"></script> -->
     </body>
 </html>

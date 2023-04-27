@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Amandine Vialle-Guérin - étudiante en cybersécurité à Guardia Cybersecurity School, en recherchde stage pour mi-mai.">
+        <link rel="icon" href="../img/logo.png">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../dist/style.css">
+        <!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+        <title>AVG</title>
+    </head>
+
+<body>
+    <nav class="dark:bg-[#1f2022] z-50 shadow-sm bg-white sm:min-w-full sticky content-center top-0 flex flex-row p-2 max-w-5xl items-center justify-between">
+        <button
+            class="lg:hidden w-[30%] hover:text-[#415446] cursor-pointer text-xs font-medium leading-tight transition duration-150 ease-in-out"
+            data-te-sidenav-toggle-ref
+            data-te-target="#sidenav-2"
+            aria-controls="#sidenav-2"
+            aria-haspopup="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+        </button>
+        
+        <div class="w-[30%] lg:pl-48 ">
+            <a href="#"  aria-label="Page d'accueil du Portfolio"><img class="mx-auto w-24 sm:w-32 md:inline md:mr-4" src="../img/AVG-green.png" alt="logo Amandine Vialle-Guérin"></a>
+        </div>
+        
+        <ul class="lg:visible hidden lg:flex lg:w-[50%] gap-8 font-medium">
+            <li class="hover:text-[#415446]"><a href="#" >Home</a></li>
+            <li class="hover:text-[#415446]"><a href="#aboutMe" >About</a></li>
+            <li class="hover:text-[#415446]"><a href="#skills" >Skills</a></li>
+            <li class="hover:text-[#415446]"><a href="#projects" >Projects</a></li>
+            <li class="hover:text-[#415446]"><a href="#game" >Games</a></li>
+            <li class="hover:text-[#415446]"><a href="#contact" >GuestBook</a></li>
+        </ul>
+        <a id="reverse" onclick="reverse()" href="#" class="cursor-pointer moon lg:w-[10%] lg:pl-0 w-[30%] hover:text-[#415446] dark:hidden ">   
+            
+            <img src="../img/recharger.png" class="hover:text-[#415446] mx-auto w-6 h-6">      
+        </a>
+
+        
+        
+        
+    </nav>
+    <pyxel-run root="../jeu/" name="game.py" gamepad="enabled"></pyxel-run>
+
+    <script src="../js/script.js"></script>
+    <script src="../tailwind.config.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <script>
+        const typed = new Typed('.type', {
+            strings: ["a Cybersecurity Student","a Web Developper", "an Entrepreneur"],
+            typeSpeed: 30,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/kitao/pyxel/wasm/pyxel.js"></script>   
+    <!-- <script src="../jeu/game.py"></script> -->
+
+
+</body>
+</html>
+    
