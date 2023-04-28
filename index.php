@@ -3,7 +3,7 @@ require "cfg/config.php"; ?>
 
 
 <!DOCTYPE html>
-<html class="" lang="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,24 +13,13 @@ require "cfg/config.php"; ?>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="dist/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
     <title>AVG</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython_stdlib.js"></script>
-    <style>
-        * { padding: 0; margin: 0; }
-        canvas { background: #eee; display: block; margin: 0 auto; }
-        body,td,th{
-            font-family:sans-serif;
-            font-size:12px;
-        }
-    </style>
+    
   </head>
 
-  <body unload="brython()">
+  <body onload="brython()">
     <?php
     $sql = "SELECT * FROM guestbook ORDER BY idMessage DESC LIMIT 3";
     $pre = $pdo->prepare($sql);
@@ -62,7 +51,7 @@ require "cfg/config.php"; ?>
         </svg>
       </button>
       <div class="w-[30%] lg:pl-48 ">
-          <a href="#"  aria-label="Page d'accueil du Portfolio"><img class="mx-auto w-24 sm:w-32 md:inline md:mr-4" src="img/AVG-green.png" alt="logo Amandine Vialle-Guérin"></a>
+          <a href="#"  aria-label="Page d'accueil du Portfolio"><img class="mx-auto w-24 sm:w-28 xl:w-32 md:inline md:mr-4" src="img/AVG-green.png" alt="logo Amandine Vialle-Guérin"></a>
       </div>
       <ul class="lg:visible hidden lg:flex lg:w-[50%] gap-8 font-medium">
         <li class="hover:text-[#415446]"><a href="#" >Home</a></li>
@@ -80,11 +69,11 @@ require "cfg/config.php"; ?>
         <img class="sm:h-96"src="img/amandine.png" alt="Amandine Vialle-Guérin">
       </div> 
       <div class="flex flex-col lg:w-[60%] xl:w-[60%] lg:pt-16 mx-16 ">
-        <h1 class="text-3xl">Hey, I'm <span class="type"></span></h1>
+        <h1 class="text-left text-3xl">Hey, I'm <span class="type"></span></h1>
         <h2 class="text-5xl font-medium text-[#415446] py-2">Amandine Vialle-Guérin</h2>
-        <h3 class="text-2xl lg:py-3">Student at Guardia Cybersecurity School</h3>
-        <p class="lg:pr-36 text-lg">I am a 19 years old student, currently in bachelor at the Guardia Cybersecurity School of Lyon, FR.</p>
-        <a class="text-white rounded-2xl mt-5 w-32 p-4 bg-[#415446]" href="#contact">Contact Me</a>
+        <h3 class="text-black text-2xl lg:py-3">Student at Guardia Cybersecurity School</h3>
+        <p class="lg:pr-36 text-black text-lg">I am a 19 years old student, currently in bachelor at the Guardia Cybersecurity School of Lyon, FR.</p>
+        <a class="text-center text-white rounded-2xl mt-5 w-32 p-4 bg-[#415446]" href="#contact">Contact Me</a>
         <a class="pt-16 xl:pt-48 text-lg flex flex-row" href="#aboutMe">
           <img class="w-8" src="img/souris.png" alt="Amandine Vialle-Guérin">
           <p class="text-[#415446] pl-3 mt-1">Scroll Down</p>
@@ -92,24 +81,24 @@ require "cfg/config.php"; ?>
         </a>
       </div>
       <div class="lg:h-96 w-0 h-0 lg:w-[40%] xl:w-[30%]">
-          <img class="h-96 xl:h-[500px]"src="img/amandine.png" alt="Amandine Vialle-Guérin">
+          <img class="h-96"src="img/amandine.png" alt="Amandine Vialle-Guérin">
       </div>
     </div>
 
     <!-- ABOUT ME -->
 
     <div>
-      <h3 id="aboutMe" class="scroll-mt-24 text-4xl font-bold capitalize text-center mb-16" >About Me</h3>
+      <h3 id="aboutMe" class="text-black scroll-mt-24 text-4xl font-bold capitalize text-center mb-16" >About Me</h3>
       <div class="grid grid-cols-12">
         <div class="col-span-12 md:col-span-6 pb-10" >
-          <img class=" mx-auto rounded-3xl w-[70%] h-auto my-auto" src="img/Photo de profil.jpg" alt="Amandine Vialle-Guérin">
-        </div>
+          <img class=" mx-auto rounded-3xl w-[70%] h-auto my-auto" src="img/profil.jpg" alt="Amandine Vialle-Guérin">
+        </div>  
 
         <div class="md:col-start-7 md:col-span-5 col-span-12 flex flex-col text-lg px-10" >
-          <p class="mb-10">My training in cybersecurity allows me to secure the informatic environment of enterprises.</p>
-          <p class="mb-10">As a student, I am passionate about the cybersecurity world. I trained myself on platforms like TryHackMe or OZINT.</p> 
-          <p>End of my Master's degree : October 2027</p>
-          <a class="text-white flex flex-row rounded-2xl mt-5 w-48 p-4 bg-[#415446]" href="document/CV.pdf" download><p>Download CV</p>  <img class="pl-3 pt-1 h-5" src="img/download.png" alt="Amandine Vialle-Guérin"></a>
+          <p class="text-black mb-10">My training in cybersecurity allows me to secure the informatic environment of enterprises.</p>
+          <p class="text-black mb-10">As a student, I am passionate about the cybersecurity world. I trained myself on platforms like TryHackMe or OZINT.</p> 
+          <p class="text-black">End of my Master's degree : October 2027</p>
+          <a class="flex flex-row rounded-2xl mt-5 w-48 p-4 bg-[#415446]" href="document/CV.pdf" download><p class="text-white mx-auto">Download CV</p>  <img class="pl-3 pt-1 h-5" src="img/download.png" alt="Amandine Vialle-Guérin"></a>
           <div>
             <a class=" place-content-end pt-16 xl:pt-48 text-lg flex flex-row" href="#skills">
               <img class="w-8" src="img/souris.png" alt="Amandine Vialle-Guérin">
@@ -126,7 +115,7 @@ require "cfg/config.php"; ?>
     <section class="relative z-[1] py-28 mx-3 md:mx-24">
       <div class="w-[calc(100%_-_3rem)] mx-auto max-w-lg lg:max-w-5xl xl:max-w-7xl">
         <div class="mb-16">
-          <h3 id="skills" class="scroll-mt-24 text-4xl font-bold capitalize text-center">Skills</h3>
+          <h3 id="skills" class="text-black scroll-mt-24 text-4xl font-bold capitalize text-center">Skills</h3>
         </div>
         <ul class="grid grid-cols-12 gap-y-12 lg:gap-12">
           <li class="col-span-12 lg:col-span-6">
@@ -151,7 +140,7 @@ require "cfg/config.php"; ?>
             <div class="mt-4 flex flex-col gap-2 px-3 pr-16">
               <div class="flex flex-row">
                   <div class="shrink-0" aria-hidden="true">
-                      <p>HTML/CSS</p> 
+                      <p class="text-black">HTML/CSS</p> 
                   </div>
                   <div class="ml-5 mt-2 w-full h-2 bg-[#EBF0EC] rounded-full">
                       <div class="w-5/6 h-full text-center text-xs text-white bg-[#415446] rounded-full">
@@ -160,7 +149,7 @@ require "cfg/config.php"; ?>
               </div>
               <div class="flex flex-row">
                   <div class="shrink-0" aria-hidden="true">
-                      <p>PHP/MySQL</p> 
+                      <p class="text-black">PHP/MySQL</p> 
                   </div>
                   <div class="ml-5 mt-2 w-full h-2 bg-[#EBF0EC] rounded-full">
                       <div class="w-4/6 h-full text-center text-xs text-white bg-[#415446] rounded-full">
@@ -169,7 +158,7 @@ require "cfg/config.php"; ?>
               </div>
               <div class="flex flex-row">
                   <div class="shrink-0" aria-hidden="true">
-                      <p>Python</p> 
+                      <p class="text-black">Python</p> 
                   </div>
                   <div class="ml-5 mt-2 w-full h-2 bg-[#EBF0EC] rounded-full">
                       <div class="w-5/6 h-full text-center text-xs text-white bg-[#415446] rounded-full">
@@ -188,7 +177,7 @@ require "cfg/config.php"; ?>
               <div class="mt-4 flex flex-col gap-2 px-3 pr-16">
                   <div class="flex flex-row">
                       <div class="shrink-0" aria-hidden="true">
-                          <p>French</p> 
+                          <p class="text-black">French</p> 
                       </div>
                       <div class="ml-5 mt-2 w-full h-2 bg-[#EBF0EC] rounded-full">
                           <div class="w-full h-full text-center text-xs text-white bg-[#415446] rounded-full">
@@ -197,7 +186,7 @@ require "cfg/config.php"; ?>
                   </div>
                   <div class="flex flex-row">
                       <div class="shrink-0" aria-hidden="true">
-                          <p>English</p> 
+                          <p class="text-black">English</p> 
                       </div>
                       <div class="ml-5 mt-2 w-full h-2 bg-[#EBF0EC] rounded-full">
                           <div class="w-5/6 h-full text-center text-xs text-white bg-[#415446] rounded-full">
@@ -206,7 +195,7 @@ require "cfg/config.php"; ?>
                   </div>
                   <div class="flex flex-row">
                       <div class="shrink-0" aria-hidden="true">
-                          <p>Corean</p> 
+                          <p class="text-black">Corean</p> 
                       </div>
                       <div class="ml-5 mt-2 w-full h-2 bg-[#EBF0EC] rounded-full">
                           <div class="w-1/5 h-full text-center text-xs text-white bg-[#415446] rounded-full">
@@ -240,7 +229,7 @@ require "cfg/config.php"; ?>
 
     <!-- MON PARCOURS -->
     
-    <h3 id="qualifications" class="scroll-mt-24 mt-24 text-4xl font-bold capitalize text-center mb-16">Qualifications</h3>
+    <h3 id="qualifications" class=" text-black scroll-mt-24 mt-24 text-4xl font-bold capitalize text-center mb-16">Qualifications</h3>
     <div class="containe w-full">
       <div class="relative wrap overflow-hidden px-3 md:px-24 lg:px-52 xl:px-80 h-full">
         <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div> 
@@ -283,29 +272,29 @@ require "cfg/config.php"; ?>
 
     <!-- GUARDIA'S PROJECT -->
 
-    <h3 id="projects" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16" id="aboutMe">Projects</h3>
+    <h3 id="projects" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Projects</h3>
     <section class="feature-v6 py-12 relative z-[1]">
       <div class="mx-auto w-[calc(100%_-_3rem)] lg:max-w-5xl xl:max-w-7xl">
         <div class="grid grid-cols-12 gap-8 md:gap-16 rounded-lg">  
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
             <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/web.jpg" alt="Amandine Vialle-Guérin"></a>
-            <p class="text-lg p-3">Web Developpement</p>
+            <p class="text-black text-lg p-3">Web Developpement</p>
           </div>
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
             <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/net.jpg" alt="Amandine Vialle-Guérin"></a>
-            <p class="text-lg p-3">Network</p>
+            <p class="text-black text-lg p-3">Network</p>
           </div>
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
             <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/scrap.jpg" alt="Amandine Vialle-Guérin"></a>
-            <p class="text-lg p-3">Scrapping</p>
+            <p class="text-black text-lg p-3">Scrapping</p>
           </div>
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
             <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/cyber.jpg" alt="Amandine Vialle-Guérin"></a>
-            <p class="text-lg p-3">Introduction to cyber</p>
+            <p class="text-black text-lg p-3">Introduction to cyber</p>
           </div>
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
             <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/c.jpg" alt="Amandine Vialle-Guérin"></a>
-            <p class="text-lg p-3">C Language</p>
+            <p class="text-black text-lg p-3">C Language</p>
           </div>
         </div>
       </div>
@@ -322,16 +311,16 @@ require "cfg/config.php"; ?>
       
     <!-- GAME -->
 
-    <h3 id="game" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Game</h3>
+    <h3 id="game" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Game</h3>
         
     <div class="flex justify-center">
-      <a target="_blank" class="text-2xl rounded-2xl mt-5 w-24 p-3 bg-[#415446] hover:shadow-xl hover:bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% " href="jeu/click-game.html"><p class="text-center text-white">Play</p></a>
+      <a target="_blank" class="text-2xl rounded-2xl mt-5 w-24 p-3 bg-[#415446] hover:shadow-xl hover:bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% " href="jeu/game.html"><p class="text-center text-white">Play</p></a>
 
     </div>
 
     <!-- GET IN TOUCH WITH ME -->
 
-    <h3 id="contact" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Let a message</h3>
+    <h3 id="contact" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Let a message</h3>
     <form class="mx-auto md:mx w-[250px] p-4 md:p-10 md:w-[500px] bg-white rounded-xl drop-shadow-lg space-y-4" action="action/contact.php" method="post">
       <!-- Email -->
       <div class="flex flex-col">
@@ -342,14 +331,14 @@ require "cfg/config.php"; ?>
       <!-- Message -->
       <div class="flex flex-col">
         <label for="message">Message <span class="text-red-600">*</span></label>
-        <textarea name="message" id="message" cols="30" rows="3" class="border border-spacing-1 border-[#415446] p-2 bg-[#EBF0EC] rounded-xl mt-3" required></textarea>
+        <textarea name="message" id="message" cols="30" rows="3" class="text-base border border-spacing-1 border-[#415446] p-2 bg-[#EBF0EC] rounded-xl mt-3" required></textarea>
       </div>
       <button type="submit" class="rounded-xl px-5 py-1 bg-[#415446] text-white">Send</button>
     </form>
 
     <!-- FEEDBACK -->
 
-    <h3 id="feedback" class="mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Feedback</h3>
+    <h3 id="feedback" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Feedback</h3>
     <section class="feature-v6 relative z-[1]">
       <div class="mx-auto w-[calc(100%_-_3rem)] lg:max-w-5xl xl:max-w-7xl">
         <div class="mx-16 grid grid-cols-12 gap-8 md:gap-16 rounded-lg">  
@@ -413,6 +402,5 @@ require "cfg/config.php"; ?>
     <script src="tailwind.config.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
     <script>const typed = new Typed('.type', {strings: ["a Cybersecurity Student","a Web Developper", "an Entrepreneur"],typeSpeed: 30,backSpeed: 30,loop: true});</script>
-    <script src="https://cdn.jsdelivr.net/gh/kitao/pyxel/wasm/pyxel.js"></script>   
   </body>
 </html>
