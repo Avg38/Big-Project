@@ -3,7 +3,7 @@ require "cfg/config.php"; ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="" lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,23 +13,24 @@ require "cfg/config.php"; ?>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="dist/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
     <title>AVG</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython_stdlib.js"></script>
+    <style>
+        * { padding: 0; margin: 0; }
+        canvas { background: #eee; display: block; margin: 0 auto; }
+        body,td,th{
+            font-family:sans-serif;
+            font-size:12px;
+        }
+    </style>
   </head>
 
-  <body onload="brython()">
-    <?php
-    $sql = "SELECT * FROM guestbook ORDER BY idMessage DESC LIMIT 3";
-    $pre = $pdo->prepare($sql);
-    $pre->bindParam('idMessage', $_POST['idMessage']);
-    $pre->bindParam('pseudo', $_POST['pseudo']);
-    $pre->bindParam('message', $_POST['message']);
-    $pre->execute();
-    $data = $pre->fetchAll(PDO::FETCH_ASSOC);
-
-    ?>  
+  <body unload="brython()">
 
     <!-- NAVBAR -->
     
@@ -39,27 +40,25 @@ require "cfg/config.php"; ?>
         <li class="p-2 hover:text-[#415446]"><a href="#aboutMe" >About</a></li>
         <li class="p-2 hover:text-[#415446]"><a href="#skills" >Skills</a></li>
         <li class="p-2 hover:text-[#415446]"><a href="#projects" >Projects</a></li>
-        <li class="p-2 hover:text-[#415446]"><a href="#game" >Games</a></li>
-        <li class="p-2 hover:text-[#415446]"><a href="#contact" >GuestBook</a></li>
+        <li class="p-2 hover:text-[#415446]"><a href="#contact" >Contact</a></li>
       </ul>
     </div>
 
-    <nav class="dark:bg-[#1f2022] z-50 shadow-sm bg-white sm:min-w-full sticky content-center top-0 flex flex-row p-2 max-w-5xl items-center justify-between">
+    <nav class="z-50 shadow-sm bg-white sm:min-w-full sticky content-center top-0 flex flex-row p-2 max-w-5xl items-center justify-between">
       <button class="lg:hidden w-[30%] hover:text-[#415446] cursor-pointer text-xs font-medium leading-tight transition duration-150 ease-in-out" data-te-sidenav-toggle-ref data-te-target="#sidenav-2" aria-controls="#sidenav-2" aria-haspopup="true">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
       </button>
       <div class="w-[30%] lg:pl-48 ">
-          <a href="#"  aria-label="Page d'accueil du Portfolio"><img class="mx-auto w-24 sm:w-28 xl:w-32 md:inline md:mr-4" src="img/AVG-green.png" alt="logo Amandine Vialle-Guérin"></a>
+          <a href="#"  aria-label="Page d'accueil du Portfolio"><img class="mx-auto w-24 sm:w-32 md:inline md:mr-4" src="img/AVG-green.png" alt="logo Amandine Vialle-Guérin"></a>
       </div>
       <ul class="lg:visible hidden lg:flex lg:w-[50%] gap-8 font-medium">
         <li class="hover:text-[#415446]"><a href="#" >Home</a></li>
         <li class="hover:text-[#415446]"><a href="#aboutMe" >About</a></li>
         <li class="hover:text-[#415446]"><a href="#skills" >Skills</a></li>
         <li class="hover:text-[#415446]"><a href="#projects" >Projects</a></li>
-        <li class="hover:text-[#415446]"><a href="#game" >Games</a></li>
-        <li class="hover:text-[#415446]"><a href="#contact" >GuestBook</a></li>
+        <li class="hover:text-[#415446]"><a href="#contact" >Contact</a></li>
       </ul>
     </nav>
 
@@ -81,7 +80,7 @@ require "cfg/config.php"; ?>
         </a>
       </div>
       <div class="lg:h-96 w-0 h-0 lg:w-[40%] xl:w-[30%]">
-          <img class="h-96"src="img/amandine.png" alt="Amandine Vialle-Guérin">
+          <img class="h-96 lg:h-[25em] xl:h-[30em] 2xl:h-[500px]"src="img/amandine.png" alt="Amandine Vialle-Guérin">
       </div>
     </div>
 
@@ -272,28 +271,28 @@ require "cfg/config.php"; ?>
 
     <!-- GUARDIA'S PROJECT -->
 
-    <h3 id="projects" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Projects</h3>
+    <h3 id="projects" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16" id="aboutMe">Projects</h3>
     <section class="feature-v6 py-12 relative z-[1]">
       <div class="mx-auto w-[calc(100%_-_3rem)] lg:max-w-5xl xl:max-w-7xl">
         <div class="grid grid-cols-12 gap-8 md:gap-16 rounded-lg">  
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
-            <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/web.jpg" alt="Amandine Vialle-Guérin"></a>
+            <img class="sm:w-auto rounded-3xl" src="img/web.jpg" alt="Amandine Vialle-Guérin">
             <p class="text-black text-lg p-3">Web Developpement</p>
           </div>
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
-            <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/net.jpg" alt="Amandine Vialle-Guérin"></a>
+            <img class="sm:w-auto rounded-3xl" src="img/net.jpg" alt="Amandine Vialle-Guérin">
             <p class="text-black text-lg p-3">Network</p>
           </div>
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
-            <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/scrap.jpg" alt="Amandine Vialle-Guérin"></a>
+            <img class="sm:w-auto rounded-3xl" src="img/scrap.jpg" alt="Amandine Vialle-Guérin">
             <p class="text-black text-lg p-3">Scrapping</p>
           </div>
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
-            <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/cyber.jpg" alt="Amandine Vialle-Guérin"></a>
+            <img class="sm:w-auto rounded-3xl" src="img/cyber.jpg" alt="Amandine Vialle-Guérin">
             <p class="text-black text-lg p-3">Introduction to cyber</p>
           </div>
           <div class="rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
-            <a class="hover:opacity-60" href=""><img class="sm:w-auto rounded-3xl" src="img/c.jpg" alt="Amandine Vialle-Guérin"></a>
+            <img class="sm:w-auto rounded-3xl" src="img/c.jpg" alt="Amandine Vialle-Guérin">
             <p class="text-black text-lg p-3">C Language</p>
           </div>
         </div>
@@ -301,7 +300,7 @@ require "cfg/config.php"; ?>
     </section>
 
     <div>
-      <a class=" place-content-end mr-16 text-lg flex flex-row" href="#game">
+      <a class=" place-content-end mr-16 text-lg flex flex-row" href="#contact">
         <img class="w-8" src="img/souris.png" alt="Amandine Vialle-Guérin">
         <p class="text-[#415446] pl-3 mt-1">Scroll Down</p>
         <img class=" mt-2 ml-2 h-4" src="img/fleche.png" alt="Amandine Vialle-Guérin">
@@ -309,23 +308,15 @@ require "cfg/config.php"; ?>
         
     </div>
       
-    <!-- GAME -->
-
-    <h3 id="game" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Game</h3>
-        
-    <div class="flex justify-center">
-      <a target="_blank" class="text-2xl rounded-2xl mt-5 w-24 p-3 bg-[#415446] hover:shadow-xl hover:bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% " href="jeu/game.html"><p class="text-center text-white">Play</p></a>
-
-    </div>
 
     <!-- GET IN TOUCH WITH ME -->
 
-    <h3 id="contact" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Let a message</h3>
+    <h3 id="contact" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Get In Touch</h3>
     <form class="mx-auto md:mx w-[250px] p-4 md:p-10 md:w-[500px] bg-white rounded-xl drop-shadow-lg space-y-4" action="action/contact.php" method="post">
       <!-- Email -->
       <div class="flex flex-col">
-        <label for="pseudo">Pseudo <span class="text-red-600">*</span></label>
-        <input type="text" name="pseudo" id="pseudo"  class="bg-[#EBF0EC] border border-spacing-1 border-[#415446] rounded-xl mt-3 p-2 text-base" required>
+        <label for="email">Email <span class="text-red-600">*</span></label>
+        <input type="text" name="email" id="email"  class="bg-[#EBF0EC] border border-spacing-1 border-[#415446] rounded-xl mt-3 p-2 text-base" required>
       </div>
 
       <!-- Message -->
@@ -336,32 +327,10 @@ require "cfg/config.php"; ?>
       <button type="submit" class="rounded-xl px-5 py-1 bg-[#415446] text-white">Send</button>
     </form>
 
-    <!-- FEEDBACK -->
-
-    <h3 id="feedback" class="text-black mt-24 scroll-mt-24 text-4xl font-bold capitalize text-center mb-16">Feedback</h3>
-    <section class="feature-v6 relative z-[1]">
-      <div class="mx-auto w-[calc(100%_-_3rem)] lg:max-w-5xl xl:max-w-7xl">
-        <div class="mx-16 grid grid-cols-12 gap-8 md:gap-16 rounded-lg">  
-          <?php foreach($data as $feedback){ ?>
-          <div class="my-auto rounded-3xl col-span-12 sm:col-span-6 lg:col-span-4">
-          <section class="my-auto testimonial relative z-[1] py-5">
-            <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl">
-              <div class="testimonial__block-wrapper mb-2">
-                <blockquote class="text-xl lg:text-2xl text-center leading-snug lg:leading-snug"><?php echo $feedback["message"] ?></blockquote>
-                <svg class="icon inline-block text-inherit fill-current leading-none shrink-0 w-[32px] h-[32px] text-gray-900 opacity-10" aria-hidden="true" viewBox="0 0 64 64"><polygon fill="currentColor" points="2 36 17 2 26 2 15 36 26 36 26 62 2 62 2 36"/><polygon fill="currentColor" points="38 36 53 2 62 2 51 36 62 36 62 62 38 62 38 36"/></svg>
-              </div>
-              <div class="text-center">
-                <p class="text-center text-black uppercase letter-spacing-md leading-tight"><strong><?php echo $feedback["pseudo"] ?></strong></p>
-              </div>
-            </div>
-          </section> 
-        </div> <?php }?>
-      </div>
-    </section>
     
     <!-- FOOTER -->
     
-    <footer class="mt-24 bg-[#EBF0EC] text-[#415446] dark:bg-[#1f2022] relative z-[1] px-12 lg:pt-12">
+    <footer class="mt-24 bg-[#EBF0EC] text-[#415446] relative z-[1] px-12 lg:pt-12">
       <div class="flex flex-col w-full md:flex-row ">
           
         <div class="md:w-[60%] flex flex-col my-8">
@@ -374,7 +343,6 @@ require "cfg/config.php"; ?>
           <li class="hover:text-black"><a href="#aboutMe" >About</a></li>
           <li class="hover:text-black"><a href="#skills" >Skills</a></li>
           <li class="hover:text-black"><a href="#projects" >Projects</a></li>
-          <li class="hover:text-black"><a href="#game" >Games</a></li>
           <li class="hover:text-black"><a href="#contact" >Contact</a></li>
         </ul>
       </div>
@@ -387,10 +355,10 @@ require "cfg/config.php"; ?>
         </div>
   
         <div class="mx-auto md:mx-0 flex items-center gap-2 lg:gap-3">
-          <a href="action/404.php" class="main-footer__social" target="_blank">
+          <a href="https://www.linkedin.com/in/avg38/" class="main-footer__social" target="_blank">
             <img class="h-5" src="img/linkedin.png" alt="">
           </a>
-          <a href="https://github.com/Avgefge38" class="main-footer__social" target="_blank">
+          <a href="https://github.com/Avg38" class="main-footer__social" target="_blank">
             <img class="h-5" src="img/github.png" alt="">
           </a>
         
