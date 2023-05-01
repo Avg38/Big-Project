@@ -1,7 +1,6 @@
 <?php
   $DB_host = "localhost";
   $DB_username = "root";
-  $DB_password = "root";
   $DB_name = "avg";
 
 
