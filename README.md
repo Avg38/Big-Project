@@ -39,7 +39,7 @@ sudo apt-get install php libapache2-mod-php php-mysql
 /etc/apache2/sites-available/000-default.conf
 /etc/apache2/sites-enabled/000-default.conf
 
-**MariaDB**
+### MariaDB
 
 Installation and Configuration:
 
@@ -64,7 +64,7 @@ sudo chown -R www-data:www-data /var/www/html/monsite
 sudo vim /var/www/html/monsite/index.php  # Add PHP code
 sudo service apache2 restart
 ```
-## Website Implementation
+### Website Implementation
 
 Framework Used: Tailwind CSS
 
@@ -89,7 +89,7 @@ Create the two files style.css (in a "CSS" folder) and style.css (in a "dist" fo
 
 Tailwind simplifies CSS by automating this task and ensuring responsiveness.
 
-## Web PHP
+### Web PHP
 
 Currently, only the contact form (temporarily a guestbook) is linked to a database in phpMyAdmin via Uwamp (which will likely move to MariaDB on VM).
 
