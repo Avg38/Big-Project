@@ -38,6 +38,7 @@ sudo apt-get install php libapache2-mod-php php-mysql
 /etc/apache2/apache2.conf
 /etc/apache2/sites-available/000-default.conf
 /etc/apache2/sites-enabled/000-default.conf
+
 **MariaDB**
 
 Installation and Configuration:
@@ -76,17 +77,19 @@ To integrate Tailwind CSS, simply add the following line in the HEAD section:
 If additional steps are needed:
 
 Download Node.js and the Tailwind CSS packages.
+
 **Run the command:**
 
 ```sh
 npx tailwindcss -i ./CSS/style.css -o ./dist/style.css --watch
 ```
 Create the two files style.css (in a "CSS" folder) and style.css (in a "dist" folder). This setup allows Tailwind to automatically write the required CSS in the dist/style.css file based on the HTML classes.
+
 **Benefits:**
 
 Tailwind simplifies CSS by automating this task and ensuring responsiveness.
 
-**Web PHP**
+## Web PHP
 
 Currently, only the contact form (temporarily a guestbook) is linked to a database in phpMyAdmin via Uwamp (which will likely move to MariaDB on VM).
 
